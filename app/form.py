@@ -82,7 +82,7 @@ class HeartAttackForm(FlaskForm):
     oldpeak = IntegerField("ST depression induced by exercise relative to rest")
     slope = IntegerField("the slope of the peak exercise ST segment")
     ca = IntegerField("number of major vessels (0-3) colored by flourosopy")
-    thal = IntegerField("?")
+    thal = IntegerField("Thal")
 
 
 class DiabetesForm(FlaskForm):

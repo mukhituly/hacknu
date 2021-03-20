@@ -4,6 +4,16 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+ul {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+li{
+  display: inline-block;
+  margin: 0px 20px 0px 20px;
+}
+
 .header {
   background: #f2f2f2;
   padding: 1em;
@@ -89,4 +99,3 @@ input[type="submit"] {
 .data {
   display: none;
 }
-/*# sourceMappingURL=main.css.map */

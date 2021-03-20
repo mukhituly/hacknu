@@ -58,7 +58,7 @@ def heart_attack_predict(age, sex, cp, trestbps, chol, fbs, restecg, thalach, ex
                    int(restecg),
                    int(thalach),
                    int(exang), 
-                   int(oldpeak),
+                   float(oldpeak),
                    int(slope),
                    int(ca),
                    int(thal)

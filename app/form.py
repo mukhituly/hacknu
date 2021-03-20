@@ -79,7 +79,7 @@ class HeartAttackForm(FlaskForm):
     exang = RadioField("Exercise Induced Angina?", choices=[
         (0, "No"), (1, "Yes")
     ])
-    oldpeak = IntegerField("ST depression induced by exercise relative to rest")
+    oldpeak = FloatField("ST depression induced by exercise relative to rest")
     slope = IntegerField("the slope of the peak exercise ST segment")
     ca = IntegerField("number of major vessels (0-3) colored by flourosopy")
     thal = IntegerField("Thal")

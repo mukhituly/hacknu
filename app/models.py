@@ -122,8 +122,8 @@ def liver_disease_predict(Age, Total_Bilirubin, Direct_Bilirubin, Alkaline_Phosp
                     float(Albumin),
                     float(Albumin_and_Globulin_Ratio)]])
     X2 = np.array([[int(Gender)]])
-    model = pickle.load(open("liver-disease-70.pkl", 'rb'))
-    scaler = pickle.load(open("liver-disease-scaler.bin", 'rb'))
+    model = pickle.load(open("weights/liver-disease-70.pkl", 'rb'))
+    scaler = pickle.load(open("weights/liver-disease-scaler.bin", 'rb'))
     X1 = scaler.transform(X1)
 
     X = np.hstack((X1, X2))

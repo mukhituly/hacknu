@@ -3,15 +3,14 @@
 {% block content %}
 <div class="grid-container">
     <form id="survey-form" action="" method="post">
+        {{ form.csrf_token }}
         <div class="title-description">
             <h1 id="title">Diseases Prediction</h1>
             <p id="description"></p>
         </div>
-        {{ form.csrf_token }}
 
         <!-- Results output here -->
         <p id="flash-message">
-        
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     {% for message in messages %}
@@ -22,10 +21,15 @@
         </p>
         <!-- Results output end-->
 
+        <p>Age {{ form.age }}</p>
 
-        {% for input in form %}
-            <p>{{ input.label }} {{ input }}</p> <!-- <InputName> <InputType> -->
+        {{ form.breast_cancer_form.csrf_token }}
+        {% for input in form.breast_cancer_form %}
+            {% if "csrf" not in input.name %}
+                <p>{{ input.label }} {{ input }}</p> <!-- <InputName> <InputType> -->
+            {% endif %}
         {% endfor %}
+
 
         {{ form.submit }}
     </form>

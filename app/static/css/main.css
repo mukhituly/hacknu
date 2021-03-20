@@ -1,0 +1,92 @@
+body {
+  background: #f2f2f2;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.header {
+  background: #f2f2f2;
+  padding: 1em;
+}
+
+.header .logo {
+  text-decoration: none;
+  font-weight: bold;
+  color: #d25959;
+  font-size: 1.2em;
+}
+
+.Hero {
+  text-align: center;
+}
+
+.mid {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: gray;
+  letter-spacing: .3em;
+}
+
+.main_text {
+  font-size: 1.5em;
+  line-height: 1.3em;
+  margin-top: .1em;
+}
+
+.healthimage {
+  width: 20%;
+  margin-top: 3em;
+}
+
+.container2 {
+  text-align: center;
+}
+
+.h2 {
+  font-size: 2em;
+}
+
+label {
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: .5em;
+}
+
+input, textarea {
+  padding: .8em;
+  margin-bottom: 1em;
+  border-radius: .3em;
+  border: 1px solid gray;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.select_gender {
+  position: relative;
+  margin-bottom: 2em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.select_analysis {
+  position: relative;
+  margin-bottom: 2em;
+}
+
+input[type="submit"] {
+  background-color: #d25959;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3em;
+  border: none;
+  margin-bottom: 2em;
+  border-radius: 5em;
+  display: inline-block;
+  width: unset;
+  cursor: pointer;
+}
+
+.data {
+  display: none;
+}
+/*# sourceMappingURL=main.css.map */

@@ -24,7 +24,7 @@ def index():
                             form.breast_cancer_form.mean_perimeter.data,
                             form.breast_cancer_form.mean_area.data,
                             form.breast_cancer_form.mean_smoothness.data) #17.99, 10.38, 122.80, 1001.0, 0.11840)
-
+        print(pred)
         if pred:
             flash("You have breast cancer :C")
         else:
@@ -108,4 +108,4 @@ def index():
 
     if form.validate_on_submit():
         return redirect(url_for('index'))
-    return render_template('survey.html', form=form)
+    return render_template('index.html', form=form)

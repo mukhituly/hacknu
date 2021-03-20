@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class = "header">
+        <div class="container">
+            <a class="logo" href="#">Python Scientists</a>
+        </div>
+    </div>
+    <section class = "Hero">
+        <div class="container">
+            <div class="mid">
+                <p class="subhead">MedicineAI</p>
+            </div>
+            <div class="main_text">
+                <h1>Enter your analysis result, and we give you the diagnosis</h1>
+            </div>
+        </div>
+        
+        <img id = "healthphoto" class = "healthimage" src="static/images/logo.png" alt="healthimage">
+    </section>
+
+    <section class="features-section">
+        <div class="container2">
+            <div class = "feature-basic">
+                <h2> Enter your personal information </h2>
+                <form action="" method="post">
+                    {{ form.csrf_token }}
+                    <p id="flash-message">
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    {{ message }}
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                    </p>
+
+                    <p>Age {{ form.age }}</p>
+
+                    <p>Gender {{ form.gender }}</p>
+
+                    <div class = "select_analysis">
+                    <label for="analysis">Analysis</label>
+                    <select id="analysis">
+                        <option value="stroke">Stroke Prediction</option>
+                        <option value="diabetes">Diabetes Prediction</option>
+                        <option value="heart-attack">Heart Attack Prediction</option>
+                        <option value="breast-cancer">Breast Cancer Prediction</option>
+                        <option value="liver-patient">Liver Patient Prediction</option>
+                    </select>
+                    </div>
+
+                    <div class = "analysis_attributes">
+                        <div id = "breast-cancer" class="data">
+                            {{ form.breast_cancer_form.csrf_token }}
+                                {% for input in form.breast_cancer_form %}
+                                    {% if "csrf" not in input.name %}
+                                        <p>{{ input.label }} {{ input }}</p> <!-- <InputName> <InputType> -->
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div id="heart-attack" class="data">
+                            {{ form.heart_attack_form.csrf_token }}
+                            {% for input in form.heart_attack_form %}
+                                {% if "csrf" not in input.name %}
+                                    {% if "Radio" not in input.__class__.__name__ %}
+                                        <p>{{ input.label }} {{ input }}</p> <!-- <InputName> <InputType> -->
+                                    {% else %}
+                                        <p> {{ input.label }}
+                                                {% for option in input %}
+                                                    {{ option }} {{ option.label }}
+                                                {% endfor %}
+                                        </p>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div id = "diabetes" class="data">
+                            {{ form.diabetes_form.csrf_token }}
+                            {% for input in form.diabetes_form %}
+                                {% if "csrf" not in input.name %}
+                                    {% if "Radio" not in input.__class__.__name__ %}
+                                        <p>{{ input.label }} {{ input }}</p> <!-- <InputName> <InputType> -->
+                                    {% else %}
+                                        <p> {{ input.label }}
+                                                {% for option in input %}
+                                                    {{ option }} {{ option.label }}
+                                                {% endfor %}
+                                        </p>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div id = "liver-patient" class="data">
+                            {{ form.liver_disease_form.csrf_token }}
+                            {% for input in form.liver_disease_form %}
+                                {% if "csrf" not in input.name %}
+                                    {% if "Radio" not in input.__class__.__name__ %}
+                                        <p>{{ input.label }} {{ input }}</p> <!-- <InputName> <InputType> -->
+                                    {% else %}
+                                        <p> {{ input.label }}
+                                                {% for option in input %}
+                                                    {{ option }} {{ option.label }}
+                                                {% endfor %}
+                                            </ul>
+                                        </p>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div id = "stroke" class="data">
+                            {{ form.stroke_form.csrf_token }}
+                            {% for input in form.stroke_form %}
+                                {% if "csrf" not in input.name %}
+                                    {% if "avg_glucose_level" in input.name or "bmi" in input.name %}
+                                        <p>{{ input.label }} {{ input }}</p> <!-- <InputName> <InputType> -->
+                                    {% else %}
+                                        <p> {{ input.label }}
+                                                {% for option in input %}
+                                                    {{ option }} {{ option.label }}
+                                                {% endfor %}
+                                        </p>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                    <script>
+                        $(document).ready(function(){
+                            $("#analysis").on('change', function(){
+                                $(".data").hide();
+                                $('#' + $(this).val()).fadeIn(700);
+                            });
+                        });
+                    </script>
+
+                {{ form.submit() }}
+                </form>
+                
+            </div>
+        </div>
+    </section>
+{% endblock %}

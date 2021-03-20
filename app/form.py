@@ -59,7 +59,7 @@ class StrokeForm(FlaskForm):
 
 
 class HeartAttackForm(FlaskForm):
-    cp = RadioField("Married or was Married?", choices=[
+    cp = RadioField("CP?", choices=[
         (0, "Typical Angina"),
         (1, "Atypical Angina"),
         (2, "non-anginal pain"),

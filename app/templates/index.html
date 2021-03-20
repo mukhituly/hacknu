@@ -105,7 +105,7 @@
                             {{ form.stroke_form.csrf_token }}
                             {% for input in form.stroke_form %}
                                 {% if "csrf" not in input.name %}
-                                    {% if "avg_glucose_level" in input.name or "bmi" in input.name %}
+                                    {% if "Radio" not in input.__class__.__name__ %}
                                         {{ input.label }} {{ input }} <!-- <InputName> <InputType> -->
                                     {% else %}
                                         <p> {{ input.label }}

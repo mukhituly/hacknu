@@ -73,7 +73,7 @@ class HeartAttackForm(FlaskForm):
     restecg = RadioField("Resting Electrocardiographic Results?", choices=[
         (0, "Normal"),
         (1, "Has ST-T wave abnormality"),
-        (2, "Shows Probability or Definite Left Ventricular Hypertrophy")
+        (2, "Probability of Left Ventricular Hypertrophy")
     ])
     thalach = IntegerField("Maximum heart Rate Achieved")
     exang = RadioField("Exercise Induced Angina?", choices=[

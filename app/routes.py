@@ -31,6 +31,10 @@ def breast_cancer():
                                      form.mean_perimeter.data,
                                      form.mean_area.data,
                                      form.mean_smoothness.data) #17.99, 10.38, 122.80, 1001.0, 0.11840)
-        flash(pred)
+
+        if pred:
+            flash("You have breast cancer :C")
+        else:
+            flash("You don't have breast cancer c:")
         return redirect(url_for('breast_cancer'))
     return render_template('breast_cancer.html', form=form)

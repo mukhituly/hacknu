@@ -23,10 +23,36 @@
 
         <p>Age {{ form.age }}</p>
 
+        <p>Gender {{ form.gender }}</p>
+
+        <h3>Breast Cancer</h3>
+
         {{ form.breast_cancer_form.csrf_token }}
         {% for input in form.breast_cancer_form %}
             {% if "csrf" not in input.name %}
                 <p>{{ input.label }} {{ input }}</p> <!-- <InputName> <InputType> -->
+            {% endif %}
+        {% endfor %}
+
+        <h3>Stroke Prediction</h3>
+
+        {{ form.stroke_form.csrf_token }}
+        {% for input in form.stroke_form %}
+            {% if "csrf" not in input.name %}
+                {% if "avg_glucose_level" in input.name or "bmi" in input.name %}
+                    <p>{{ input.label }} {{ input }}</p> <!-- <InputName> <InputType> -->
+                {% else %}
+                    <p> {{ input.label }}
+                        <ul>
+                            {% for option in input %}
+                            <li>
+                                {{ option }}
+                                {{ option.label }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </p>
+                {% endif %}
             {% endif %}
         {% endfor %}
 
